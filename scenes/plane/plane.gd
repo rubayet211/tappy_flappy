@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 const GRAVITY: float = 600.0
@@ -26,6 +27,7 @@ func _physics_process(delta: float) -> void:
 func fly() -> void:
 	if Input.is_action_just_pressed("fly") == true:
 		velocity.y = POWER
+		animation_player.play("power")
 
 
 func die() -> void:
